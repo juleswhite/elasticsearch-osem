@@ -19,14 +19,14 @@ public class Tweet {
     private User user;
 
     @IndexableProperty(store = true, coerce = false, copyTo = {"image"}, fieldDataLoading = FieldDataLoading.EAGER,
-                        fieldDataFormat = FieldDataFormat.FST, fieldDataFilterRegexPattern = "*", fieldDataFilterFrequencyMin = "0.001",
+                        fieldDataFormat = FieldDataFormat.FST, fieldDataFilterRegexPattern = "", fieldDataFilterFrequencyMin = "0.001",
                         fieldDataFilterFrequencyMax = "0.1", fieldDataFilterFrequencyMinSegmentSize = "500")
     private String tweetString;
 
     @IndexableProperty(format = "basic_date||yyyy/MM/dd")
     private Date tweetDate;
 
-    @IndexableProperty(serializer = ImageSerializer.class, jsonInclude = JsonInclude.ALWAYS, docValuesFormat = DocValuesFormatEnum.DISK)
+    @IndexableProperty(serializer = ImageSerializer.class, jsonInclude = JsonInclude.ALWAYS)
     private String image;
 
     @IndexableProperty(analyzer = "standard")

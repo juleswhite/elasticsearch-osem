@@ -48,10 +48,6 @@ public @interface IndexableProperty {
      */
     boolean docValues() default false;
 
-    /**
-     * "doc_values_format" field in mapping
-     */
-    DocValuesFormatEnum docValuesFormat() default DocValuesFormatEnum.NA;
 
     /**
      * "term_vector" field in mapping

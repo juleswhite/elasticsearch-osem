@@ -68,7 +68,10 @@ public class OsemBeanPropertyWriter extends BeanPropertyWriter {
         }
         // For non-nulls: simple check for direct cycles
         if (value == bean) {
-            _handleSelfReference(bean, ser);
+            // three choices: exception; handled by call; or pass-through
+            if (_handleSelfReference(bean, jgen, prov, ser)) {
+                return;
+            }
         }
         jgen.writeFieldName(_name);
         if (_typeSerializer == null) {

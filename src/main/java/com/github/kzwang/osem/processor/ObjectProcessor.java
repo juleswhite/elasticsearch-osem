@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.github.kzwang.osem.annotations.Indexable;
 import com.github.kzwang.osem.cache.CacheType;
 import com.github.kzwang.osem.cache.OsemCache;
@@ -47,6 +48,7 @@ public class ObjectProcessor {
                 .withIsGetterVisibility(JsonAutoDetect.Visibility.NONE)
                 .withSetterVisibility(JsonAutoDetect.Visibility.NONE));
         serializeMapper.registerModule(new JacksonElasticSearchOsemModule());
+        serializeMapper.registerModule(new GuavaModule());
         serializeMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         serializeMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
     }
@@ -60,6 +62,7 @@ public class ObjectProcessor {
                 .withIsGetterVisibility(JsonAutoDetect.Visibility.NONE)
                 .withSetterVisibility(JsonAutoDetect.Visibility.NONE));
         deSerializeMapper.registerModule(new JacksonElasticSearchOsemModule());
+        deSerializeMapper.registerModule(new GuavaModule());
         deSerializeMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 

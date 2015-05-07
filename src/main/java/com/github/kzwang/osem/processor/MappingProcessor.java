@@ -441,10 +441,6 @@ public class MappingProcessor {
             fieldMap.put("doc_values", Boolean.TRUE);
         }
 
-        if (indexableProperty.docValuesFormat() != DocValuesFormatEnum.NA) {
-            fieldMap.put("doc_values_format", indexableProperty.docValuesFormat().toString().toLowerCase());
-        }
-
         if (!indexableProperty.indexName().isEmpty()) {
             fieldMap.put("index_name", indexableProperty.indexName());
         }

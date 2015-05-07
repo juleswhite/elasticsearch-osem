@@ -1,1 +1,1 @@
-{"tweet_comment":{"_id":{"path":"id"},"properties":{"id":{"type":"long"},"tweetId":{"type":"long"},"comment":{"type":"string"}},"_parent":{"type":"tweetIndex"}}}
+{"tweet_comment":{"_parent":{"type":"tweetIndex"},"_id":{"path":"id"},"properties":{"comment":{"type":"string"},"id":{"type":"long"},"tweetId":{"type":"long"}}}}
